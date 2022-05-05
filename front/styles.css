@@ -1,0 +1,136 @@
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body h1 {
+  width: auto;
+  height: fit-content;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 8%;
+  margin-bottom: 5%;
+  text-align: center;
+  color: rgb(47, 47, 88);
+}
+
+#vue-app {
+  width: auto;
+  height: fit-content;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+h2 {
+  text-align: center;
+  color: rgb(47, 47, 88);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+
+  /* border: 2px solid black; */
+}
+
+thead th {
+  background-color: rgb(47, 47, 88);
+}
+th {
+  font-size: 0.9em;
+  text-align: center;
+
+  /* border-right: 2px solid black; */
+}
+td {
+  text-align: left;
+
+  /* border-right: 2px solid; */
+  padding-left: 0.5em;
+}
+
+table thead tr:nth-child(odd) {
+  color: #fdf8ef;
+
+  /*El color es de tbody  e(even)*/
+}
+
+table tbody tr:nth-child(odd) {
+  background: #5a5c90;
+}
+table tbody tr:nth-child(even) {
+  background: #9a9db5;
+}
+table tfoot {
+  background-color: #cfd1df;
+}
+.total,
+.subtotal,
+.descuento {
+  color: #3f3f73;
+}
+.buttonStyle {
+  background-color: #f7e359;
+}
+.lessTasks {
+  font-size: 0.5em;
+  text-align: center;
+  width: 20px;
+  height: 20px;
+}
+.buttonHide {
+  margin-top: 1.5vh;
+  font-size: 0.7em;
+
+  display: flex;
+  align-items: center;
+}
+
+section {
+  margin: 1em;
+  display: grid;
+  grid-row: 30% 30% 30%;
+}
+
+@media all and (max-width: 600px) {
+  .movingHead,
+  .movingBody,
+  .movingFoot {
+    padding: 20px;
+    display: grid;
+    grid-template-areas:
+      ".lessTasks" "producto" ".movingHead"
+      ".lessTasks" "unidades" ".movingHead"
+      ".lessTasks" "pu" ".movingHead"
+      ".lessTasks" "total" ".movingHead";
+    width: fit-content;
+    height: fit-content;
+    font-size: 5vw;
+  }
+}
+/*
+@media all and (max-width: 600px) {
+  .movingHead,
+  .movingBody,
+  .movingFoot {
+    padding: 20px;
+    display: inline-table;
+    width: 100%;
+    height: fit-content;
+    font-size: 4vw;
+    text-align: center;
+  }
+}
+
+@media all and (max-width: 600px) {
+  .movingFoot {
+    padding: 20px;
+    display: inline-table;
+    width: 100%;
+    height: fit-content;
+    font-size: 4vw;
+    text-align: right;
+  }
+}
+*/

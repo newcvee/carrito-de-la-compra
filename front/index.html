@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link href="styles.css" rel="stylesheet" type="text/css" />
+    <script src="https://unpkg.com/vue@next"></script>
+    <title>Cesta compra</title>
+  </head>
+  <body>
+    <h1>CESTA de COMPRA</h1>
+
+    <div id="vue-app">
+      <h2>{{ userName }}</h2>
+      <section>
+        <label for="product">Producto</label>
+        <input type="text" name="product" id="product" v-model="newProductName">
+        <label for="unid">unid</label>
+        <input type="number"  name="unid" id="unid" v-model= "newUnid" >
+        <label for="p/u">p/u</label>
+        <input type="number" step="any" name="p/u" id="p/u" v-model= "newPrice">
+
+        <button @click="addNewProduct ">Añadir producto</button>
+      </section>
+      <table>
+        <thead class="movingHead">
+          <tr >
+            <th></th>
+            <th class="producto">PRODUCTO({{countProducts}})</th>
+            <th class="unidades">UNID</th>
+            <th class="pu">P/U</th>
+            <th class="total">TOTAL</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="column movingBody" v-for="item in filteredItems" >
+            <td>
+              <button class="lessTasks" @click="completeButton(item)">
+                ➖
+              </button>
+            </td>
+            <td>{{item["product"]}}</td>
+            <td>{{item.unit}}</td>
+            <td>{{item["price"]}} {{accountInCurrency}}</td>
+            <td>{{totalProduct(item)}} {{accountInCurrency}}</td>
+          </tr>
+        </tbody>
+
+        <tfoot>
+          <tr class="movingFoot">
+            <th></th>
+            <th></th>
+            <th></th>
+            <th class="subtotal">Subtotal</th>
+            <th>{{totalInvoice}} {{accountInCurrency}}</th>
+          </tr>
+          <tr v-show="!showDiscount" class="movingFoot">
+            <th></th>
+            <th></th>
+            <th></th>
+            <th class="descuento">Descuento</th>
+            <th>- {{cashDiscount}}</th>
+          </tr>
+          <tr class="movingFoot">
+            <th></th>
+            <th></th>
+            <th></th>
+            <th class="total">Total</th>
+            <th v-if="showDiscount">{{totalInvoice}}</th>
+            <th v-else>{{totalWithDiscount}}</th>
+          </tr>
+        </tfoot>
+      </table>
+      <label>
+        <input
+          type="checkbox"
+          v-model="showDiscount"
+          class="buttonStyle"
+        />Anular descuento Black Friday
+      </label>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
